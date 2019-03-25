@@ -88,7 +88,13 @@
             }
             //End Function Search
 
-
+            //Footer
+            //            // Setup - add a text input to each footer cell
+            $('#proTable tfoot th').each(function (index) {
+                $(this).replaceWith('<th><input type="text" placeholder="Search ' + $(this).html() + '"/></th>');
+                var searchFooter = $("#proTable tfoot th:eq(" + index + ") input");
+                searchFooter.on('keyup', function () { prosTable.column(index).search(searchFooter.val()).draw(); });
+            });
 
 
 
