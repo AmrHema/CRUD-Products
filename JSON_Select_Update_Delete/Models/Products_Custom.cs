@@ -26,6 +26,8 @@ namespace JSON_Select_Update_Delete.Models
         public decimal Product_Price { get; set; }
         [Required]
         public int Product_QTY { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Product_Writing_Date { get; set; }
         public string Product_Description { get; set; }
         public string Product_Image { get; set; }

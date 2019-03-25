@@ -2,15 +2,15 @@
 
 @{
     ViewBag.Title = "AddOrEdit";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>AddOrEdit</h2>
 
-@using (Html.BeginForm("AddOrEdit", "Products",FormMethod.Post,new { onsubmit="return SubmitForm(this)"}))
+@using (Html.BeginForm("AddOrEdit", "Products", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
