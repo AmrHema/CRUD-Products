@@ -28,19 +28,17 @@ namespace JSON_Select_Update_Delete.Controllers
         // GET: Products JSON
         public ActionResult AddOrEdit(int id = 0)
         {
-           
+            Products products;
             if (id==0)
             {
-                Products products = new Products();
-                ViewBag.Cat_id = new SelectList(db.Categories, "Cat_id", "Cat_Name", products.Cat_id);
-                return View();
+                 products = new Products();
             }
             else
             {
-                Products products = db.Products.Where(x => x.Product_id == id).FirstOrDefault<Products>();
-                ViewBag.Cat_id = new SelectList(db.Categories, "Cat_id", "Cat_Name", products.Cat_id);
-                return View(products);
+                 products = db.Products.Where(x => x.Product_id == id).FirstOrDefault<Products>();
             }
+            ViewBag.Cat_id = new SelectList(db.Categories, "Cat_id", "Cat_Name", products.Cat_id);
+            return View(products);
         }
         //
 
